@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шкафы автоматики и смесительные узлы для вентиляции</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #E2E8F0;
+            color: #304463;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Roboto Slab', serif;
+            font-weight: 700;
+            color: #1E3A8A; /* Цвет всех заголовков */
+        }
+
+        header {
+            background: linear-gradient(to right, #eef0f4, #60A5FA);/* Градиент (фон) */
+            color: #4739e6; /* Подзаголовок */
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .product-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-description {
+            text-align: left;
+        }
+
+        .contact-button {
+            background-color: #60A5FA;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-button:hover {
+            background-color: #1E3A8A;
+        }
+
+        footer {
+            background-color: #374151;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        section#tech-task {
+            background-color: #fff;
+            padding: 40px 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        section#tech-task label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        section#tech-task input[type="text"],
+        section#tech-task input[type="email"],
+        section#tech-task input[type="tel"],
+        section#tech-task textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #CBD5E0;
+            border-radius: 5px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+
+        section#tech-task button[type="submit"] {
+            background-color: #60A5FA;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        section#tech-task button[type="submit"]:hover {
+            background-color: #1E3A8A;
+        }
+
+        section#tech-task #form-message {
+            margin-top: 20px;
+            font-weight: 500;
+        }
+
+        /* Медиа-запрос для экранов больше 768px (планшеты и десктопы) */
+        @media (min-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .product-container {
+                flex-direction: row;
+                text-align: left;
+            }
+
+            .product-description {
+                margin-left: 30px;
+            }
+
+            .product-image {
+                max-width: 400px;
+            }
+        }
+
+        /* Медиа-запрос для экранов больше 1200px (большие десктопы) */
+        @media (min-width: 1200px) {
+            section {
+                padding: 80px 20px;
+            }
+        }
+
+        .product-description ul li::before {
+            content: '\f00c';
+            font-family: FontAwesome;
+            display: inline-block;
+            margin-right: 8px;
+            color: #60A5FA;
+        }
+
+        .product-description h3 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        section#about {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+         /* Стили для галереи */
+        .product-gallery {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+
+        .product-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            cursor: pointer;
+        }
+
+        .product-image.active {
+            opacity: 1;
+            position: relative;
+        }
+
+        .gallery-controls {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .gallery-controls button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+
+        .gallery-controls button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .gallery-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #bbb;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: #60A5FA;
+        }
+
+        /* Стили для fullscreen overlay */
+        #fullscreen-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #fullscreen-overlay.active {
+            display: flex;
+        }
+
+        #fullscreen-image {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        #fullscreen-overlay .close-button::before {
+            content: '\f00d';  /* Код иконки крестика Font Awesome */
+            font-family: FontAwesome;
+            font-size: 3em;
+            color: white;
+            cursor: pointer;
+        }
+
+        #fullscreen-overlay .close-button {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 3em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Шкафы автоматики и смесительные узлы для вентиляции</h1>
+        <p>Оптимизация и управление климатом вашего объекта</p>
+    </header>
+
+    <section id="shkafy">
+        <h2>Шкафы автоматики для приточных и приточно-вытяжных установок</h2>
+        <div class="product-container">
+            <div class="product-gallery">
+                <div class="gallery-container">
+                    <img class="product-image active" src="https://dl.dropboxusercontent.com/scl/fi/9966cnvs7pqktl5l4uilh/shkaf-avtomatiki-1.JPG?rlkey=dspkzmj5803rmty7wz9u8vnjq&st=4bev69i9&" alt="Шкаф автоматики 1" onclick="openFullscreen(this)">
+                    <img class="product-image" src="https://dl.dropboxusercontent.com/scl/fi/bq4ukbq12pbfcqxawvm34/shkaf-avtomatiki-2.jpg?rlkey=q5g6tp0afopisgzvgs659k1jb&st=rgl7wuxt&" alt="Шкаф автоматики 2" onclick="openFullscreen(this)">
+                    <img class="product-image" src="https://dl.dropboxusercontent.com/scl/fi/hi12alu9c752b0zp4a4x3/shkaf-avtomatiki-3.png?rlkey=3xj2ya8mfn8khrmxb9wvo4zf8&st=wgj3dq6v&" alt="Шкаф автоматики 3" onclick="openFullscreen(this)">
+                </div>
+                <div class="gallery-controls">
+                    <button class="prev-button" data-gallery="shkafy">&lt;</button>
+                    <button class="next-button" data-gallery="shkafy">&gt;</button>
+                </div>
+                <div class="gallery-dots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
+                </div>
+            </div>
+            <div class="product-description">
+                <h3>Шкаф автоматики <i class="fa fa-server"></i></h3>
+                <p>Наши шкафы автоматики обеспечивают точное управление приточными и приточно-вытяжными установками. Они позволяют оптимизировать энергопотребление, поддерживать заданную температуру и влажность, а также обеспечивают защиту оборудования от перегрузок и аварийных ситуаций.</p>
+                <ul>
+                    <li>Надежная элементная база</li>
+                    <li>Простота настройки и эксплуатации</li>
+                    <li>Интеграция с системами диспетчеризации</li>
+                </ul>
+                <a href="#contact" class="contact-button">Заказать консультацию</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="smesitelnye_uzly">
+        <h2>Смесительные узлы для приточных установок</h2>
+        <div class="product-container">
+            <div class="product-gallery">
+                <div class="gallery-container">
+                    <img class="product-image active" src="https://via.placeholder.com/400x300/2ECC71/FFFFFF?text=Смесительный+Узел+1" alt="Смесительный узел 1" onclick="openFullscreen(this)">
+                    <img class="product-image" src="https://via.placeholder.com/400x300/3498DB/FFFFFF?text=Смесительный+Узел+2" alt="Смесительный узел 2" onclick="openFullscreen(this)">
+                    <img class="product-image" src="https://via.placeholder.com/400x300/9B59B6/FFFFFF?text=Смесительный+Узел+3" alt="Смесительный узел 3" onclick="openFullscreen(this)">
+                </div>
+                <div class="gallery-controls">
+                    <button class="prev-button" data-gallery="smesitelnye_uzly">&lt;</button>
+                    <button class="next-button" data-gallery="smesitelnye_uzly">&gt;</button>
+                </div>
+                <div class="gallery-dots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
+                </div>
+            </div>
+            <div class="product-description">
+                <h3>Смесительный узел <i class="fa fa-cog"></i></h3>
+                <p>Смесительные узлы предназначены для точного регулирования температуры теплоносителя в приточных установках. Они обеспечивают стабильную подачу тепла, предотвращая перегрев или переохлаждение воздуха, и тем самым гарантируют комфортный микроклимат в помещении.</p>
+                <ul>
+                    <li>Высокая точность регулирования</li>
+                    <li>Компактные размеры</li>
+                    <li>Простота монтажа и обслуживания</li>
+                </ul>
+                <a href="#contact" class="contact-button">Заказать консультацию</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>О нас</h2>
+        <p>Мы - команда профессионалов с многолетним опытом в области автоматизации систем вентиляции. Наша цель - предоставить нашим клиентам надежные и эффективные решения, отвечающие их потребностям.</p>
+        <p>Мы предлагаем полный спектр услуг, от проектирования до монтажа и сервисного обслуживания.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Контакты</h2>
+        <p>Свяжитесь с нами для получения консультации и заказа продукции:</p>
+        <p>Телефон: +7 (XXX) XXX-XX-XX</p>
+        <p>Email: nikita@nikita.ru</p>
+    </section>
+
+    <section id="tech-task">
+        <h2>Форма техзадания</h2>
+        <p>Опишите подробно ваши требования к шкафу автоматики или смесительному узлу:</p>
+        <form id="tech-task-form" action="send_email.php" method="POST">
+            <label for="name">Ваше имя:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Ваш email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="phone">Ваш телефон:</label><br>
+            <input type="tel" id="phone" name="phone"><br><br>
+
+            <label for="task">Техническое задание:</label><br>
+            <textarea id="task" name="task" rows="5" cols="50" required></textarea><br><br>
+
+            <button type="submit">Отправить техзадание</button>
+        </form>
+        <div id="form-message"></div>
+    </section>
+
+    <footer>
+        &copy; ООО "Десятый трест"<br>
+        2025
+    </footer>
+
+    <div id="fullscreen-overlay">
+        <span class="close-button" onclick="closeFullscreen()"></span>
+        <img id="fullscreen-image" src="" alt="">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryControls = document.querySelectorAll('.gallery-controls');
+            const fullscreenOverlay = document.getElementById('fullscreen-overlay');
+            const fullscreenImage = document.getElementById('fullscreen-image');
+
+            function updateGallery(gallery, currentImageIndex) {
+                const images = gallery.querySelectorAll('.product-image');
+                const dots = gallery.querySelectorAll('.dot');
+
+                images.forEach((img, index) => {
+                    img.classList.toggle('active', index === currentImageIndex);
+                });
+
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentImageIndex);
+                });
+            }
+
+            function openFullscreen(img) {
+                fullscreenImage.src = img.src;
+                fullscreenOverlay.classList.add('active');
+            }
+
+            function closeFullscreen() {
+                fullscreenOverlay.classList.remove('active');
+            }
+
+            function initGallery(gallery) {
+                const images = gallery.querySelectorAll('.product-image');
+                const dots = gallery.querySelectorAll('.dot');
+                let currentImageIndex = 0;
+
+                updateGallery(gallery, currentImageIndex);
+
+                gallery.addEventListener('click', function(event) {
+                    if (event.target.classList.contains('prev-button')) {
+                        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                        updateGallery(gallery, currentImageIndex);
+                    } else if (event.target.classList.contains('next-button')) {
+                        currentImageIndex = (currentImageIndex + 1) % images.length;
+                        updateGallery(gallery, currentImageIndex);
+                    } else if (event.target.classList.contains('dot')) {
+                        currentImageIndex = parseInt(event.target.dataset.index);
+                        updateGallery(gallery, currentImageIndex);
+                    }
+                });
+            }
+
+            galleryControls.forEach(control => {
+                const galleryId = control.querySelector('.prev-button').dataset.gallery;
+                const gallery = document.getElementById(galleryId).querySelector('.product-gallery');
+                initGallery(gallery);
+            });
+        });
+    </script>
+
+</body>
+</html>
