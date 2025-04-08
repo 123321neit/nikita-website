@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Воздушные фильтры для вентиляции - ООО "Десятый трест"</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Roboto:wght@400;500&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-    <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Воздушные фильтры для вентиляции - ООО "Десятый трест"</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <style>
         /* Общие стили (взяты из index.html) */
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -391,9 +389,130 @@
         #saved-filters-table td:last-child button {
             margin-left: 10px;
         }
-    </style>
-</head>
 
+         /* Добавленные стили для галереи фильтров */
+        #filter-comparison {
+            padding: 20px;
+            text-align: center;
+        }
+
+        #filter-comparison h2 {
+            margin-bottom: 20px;
+        }
+
+        .gallery-container {
+            display: flex;
+            justify-content: space-around; /* Распределяем галереи равномерно */
+            flex-wrap: wrap;            /* Позволяем галереям переноситься на новую строку */
+        }
+
+        .gallery {
+            width: 45%; /* Занимает 45% ширины контейнера (оставляем место для отступов) */
+            margin-bottom: 20px; /* Отступ между галереями по вертикали */
+            text-align: center; /* Выравниваем содержимое галереи по центру */
+        }
+
+        .gallery h3 {
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+       /* Изменения в стилях для галереи фильтров */
+.image-grid {
+    display: flex;                     /* Используем flexbox */
+    flex-wrap: wrap;                  /* Разрешаем перенос на новую строку */
+    justify-content: flex-start;      /* Выравнивание по левому краю */
+    align-items: stretch;             /* Растягиваем элементы по высоте */
+}
+
+.image-grid img {
+    width: calc(30% - 10px);            /* Три изображения в ряд (минус отступ) */
+    max-width: 200px;                 /* Максимальная ширина изображения */
+    height: auto;                     /* Автоматическая высота */
+    margin: 5px;                      /* Отступ между изображениями */
+    border-radius: 5px;                 /* Скругление углов */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень */
+    object-fit: cover;                /* Важно: обрезает изображения для сохранения пропорций */
+    cursor: pointer;                  /* Меняем курсор */
+    transition: transform 0.3s ease;   /* Анимация */
+}
+
+/* Для экранов меньше 600px делаем одну колонку */
+@media (max-width: 600px) {
+    .image-grid img {
+        width: calc(100% - 10px);      /* Одно изображение в ряд */
+        max-width: none;               /* Убираем максимальную ширину */
+    }
+}
+
+        .image-grid img:hover {
+            transform: scale(1.05); /* Небольшое увеличение при наведении */
+        }
+
+        /* Стили для полноэкранного просмотра изображения */
+    #fullscreen-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      text-align: center;
+    }
+
+    #fullscreen-image {
+      max-width: 90%;
+      max-height: 90%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .close-button {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 30px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .close-button:hover {
+      color: #ddd;
+    }
+
+    .arrow-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+      font-size: 40px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      -webkit-user-select: none; /* Safari */
+      -ms-user-select: none; /* IE 10+ */
+      user-select: none; /* Standard syntax */
+    }
+
+    .arrow-button:hover {
+      color: #ddd;
+    }
+
+    #prev-arrow {
+      left: 30px;
+    }
+
+    #next-arrow {
+      right: 30px;
+    }
+  </style>
+</head>
 <body>
 
     <nav>
@@ -412,20 +531,19 @@
 
     <section id="filters">
         <h2>Широкий выбор воздушных фильтров от ООО "Десятый трест"</h2>
-        <p>Мы предлагаем широкий ассортимент воздушных фильтров для систем вентиляции, чтобы удовлетворить любые ваши
-            потребности.</p>
+        <p>ООО “Десятый трест” – ваш надежный поставщик воздушных фильтров для вентиляции. У нас вы найдете широкий выбор фильтров различных классов очистки (G1-M6) для любых систем вентиляции – от бытовых до промышленных. Наши фильтры обеспечивают высокую степень очистки воздуха, продлевают срок службы оборудования и соответствуют самым высоким стандартам качества.</p>
 
         <div class="product-container">
             <div class="product-description">
                 <h3>Преимущества наших воздушных фильтров:</h3>
                 <ul>
                     <li>Высокая степень очистки воздуха</li>
-                    <li>Различные классы фильтрации (G1-M6 и выше)</li>
+                    <li>Различные классы фильтрации (G1-M6)</li>
                     <li>Продолжительный срок службы</li>
                     <li>Соответствие стандартам качества</li>
                     <li>Простая установка и замена</li>
                 </ul>
-                <a href="#types" class="contact-button">Подобрать фильтр по типу</a>
+                <a href="#tech-task" class="contact-button">Оформить заявку на фильтры</a>
                 <a href="#contact" class="contact-button">Получить консультацию</a>
             </div>
         </div>
@@ -472,6 +590,39 @@
                 </ul>
             </div>
         </div>
+
+        <section id="filter-comparison">
+            <h2>Наши фильтры vs Фильтры конкурентов</h2>
+            <div class="gallery-container">
+                <div class="gallery">
+                    <h3>Наши фильтры</h3>
+                    <div class="image-grid">
+                        <img src="https://dl.dropboxusercontent.com/scl/fi/xhdvatk0089rqjk9wvvpu/my-filter-1.jpeg?rlkey=l310xjrluzuyasvhvpd63cjqc&st=8h07e8ql&" alt="Наш фильтр 1" data-index="0">
+                        <img src="https://dl.dropboxusercontent.com/scl/fi/e8h78s7eiqvq0ryl02ped/my-filter-2.jpeg?rlkey=mj0sipntu1nbp20bkfzu9ru4d&st=uha6iy75&" alt="Наш фильтр 2" data-index="1">
+                        <img src="https://dl.dropboxusercontent.com/scl/fi/ynp2wt3h8inwj9y54a6s7/my-filter-3.jpeg?rlkey=ctaipiz6vr2vwhsant4bbke4o&st=3i2lbxsu&" alt="Наш фильтр 3" data-index="2">
+                        <img src="https://dl.dropboxusercontent.com/scl/fi/63rdq859s8287pjayysh0/my-filter-4.jpeg?rlkey=ll0ldv5cibtysq3svca8dgycw&st=qgtefubj&" alt="Наш фильтр 3" data-index="3">
+                    </div>
+                </div>
+                <div class="gallery">
+                    <h3>Фильтры конкурентов</h3>
+                    <div class="image-grid">
+                <img src="https://dl.dropboxusercontent.com/scl/fi/5sukrp1f7euv3krll7igx/conk-filter-1.jpeg?rlkey=tk4w70h41xuf6q1s1spkujo1s&st=z2ch5sn9&" alt="Фильтр конкурента 1" data-index="0">
+                <img src="https://dl.dropboxusercontent.com/scl/fi/elc5ci0alejyonlddptlt/conk-filter-2.jpeg?rlkey=f6j6lxu9x0cla083q5asqkr7c&st=g0eu492s&" alt="Фильтр конкурента 2" data-index="1">
+                <img src="https://dl.dropboxusercontent.com/scl/fi/jquh9i8t1xkiapdjowrup/conk-filter-3.jpeg?rlkey=kahuef223uoauo1vemji9xp2n&st=5mpbrzvv&" alt="Фильтр конкурента 3" data-index="2">
+            </div>
+
+        </div>
+    </div>
+</section>
+<div id="fullscreen-overlay">
+    <span class="close-button" onclick="closeFullscreen()">&times;</span>
+    <a class="arrow-button" id="prev-arrow" onclick="prevImage()">&#9664;</a>
+    <img id="fullscreen-image" src="" alt="">
+    <a class="arrow-button" id="next-arrow" onclick="nextImage()">&#9654;</a>
+</div>
+                </div>
+            </div>
+        </section>
     </section>
 
     <section id="contact">
@@ -587,12 +738,54 @@
         &copy; ООО "Десятый трест" 2025
     </footer>
 
-   <div id="fullscreen-overlay">
-        <span class="close-button" onclick="closeFullscreen()"></span>
+    <div id="fullscreen-overlay">
+        <span class="close-button" onclick="closeFullscreen()">&times;</span>
+        <a class="arrow-button" id="prev-arrow" onclick="prevImage()">&#9664;</a>
         <img id="fullscreen-image" src="" alt="">
-    </div>
-
+        <a class="arrow-button" id="next-arrow" onclick="nextImage()">&#9654;</a>
+     </div>
+  
     <script>
+      // Получаем ссылки на элементы overlay и image
+      const overlay = document.getElementById('fullscreen-overlay');
+        const fullscreenImage = document.getElementById('fullscreen-image');
+        let images = []; // Массив для хранения изображений текущей галереи
+        let currentImageIndex = 0;
+        let currentGallery = null; // Текущая галерея
+
+        function openFullscreen(imageSrc, index, gallery) {
+            fullscreenImage.src = imageSrc;
+            overlay.style.display = 'block';
+            currentImageIndex = index;
+            currentGallery = gallery; // Сохраняем текущую галерею
+        }
+
+        function closeFullscreen() {
+            overlay.style.display = 'none';
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            fullscreenImage.src = images[currentImageIndex].src;
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            fullscreenImage.src = images[currentImageIndex].src;
+        }
+
+        // Добавляем обработчики кликов на все изображения в галерее
+        document.querySelectorAll('.gallery').forEach(gallery => {
+            gallery.querySelectorAll('.image-grid img').forEach(img => {
+                img.addEventListener('click', function () {
+                    // Получаем изображения только из текущей галереи
+                    images = Array.from(gallery.querySelectorAll('.image-grid img'));
+                    openFullscreen(this.src, parseInt(this.dataset.index), gallery.dataset.gallery);
+                });
+            });
+        });
+  
+
         document.addEventListener('DOMContentLoaded', function() {
             const saveFiltersButton = document.getElementById('save-filters');
             const savedFiltersTableBody = document.querySelector('#saved-filters-table tbody');
